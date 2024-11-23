@@ -1,0 +1,1 @@
+export { default as IncomeSummaryReport } from './list'

@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "names": "Ana García",
+    "laboratory": "Laboratorio 1",
+    "role": "Gerente General",
+    "image": "/assets/images/avatars/avatar_1.jpg",
+    "status": true
+  },
+  {
+    "id": 2,
+    "names": "Juan Pérez",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_2.jpg",
+    "status": true
+  },
+  {
+    "id": 3,
+    "names": "María López",
+    "laboratory": "Laboratorio 2",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_3.jpg",
+    "status": false
+  },
+  {
+    "id": 4,
+    "names": "Pedro Díaz",
+    "laboratory": "Laboratorio 3",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_4.jpg",
+    "status": true
+  },
+  {
+    "id": 5,
+    "names": "Laura Martínez",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_5.jpg",
+    "status": false
+  },
+  {
+    "id": 6,
+    "names": "Carlos González",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_6.jpg",
+    "status": true
+  },
+  {
+    "id": 7,
+    "names": "Sandra Rodríguez",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_7.jpg",
+    "status": false
+  },
+  {
+    "id": 8,
+    "names": "David Fernández",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_8.jpg",
+    "status": true
+  },
+  {
+    "id": 9,
+    "names": "Isabel Jiménez",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_9.jpg",
+    "status": false
+  },
+  {
+    "id": 10,
+    "names": "Miguel García",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_10.jpg",
+    "status": false
+  },
+  {
+    "id": 11,
+    "names": "Patricia Pérez",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_11.jpg",
+    "status": true
+  },
+  {
+    "id": 12,
+    "names": "Roberto López",
+    "laboratory": "Laboratorio 2",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_12.jpg",
+    "status": true
+  },
+  {
+    "id": 13,
+    "names": "Ana Martín",
+    "laboratory": "Laboratorio 1",
+    "role": "Bionalista",
+    "image": "/assets/images/avatars/avatar_13.jpg",
+    "status": true
+  },
+  {
+    "id": 14,
+    "names": "Elena Martínez",
+    "laboratory": "Laboratorio 1",
+    "role": "Asistente",
+    "image": "/assets/images/avatars/avatar_14.jpg",
+    "status": true
+  },
+  {
+    "id": 15,
+    "names": "Francisco Pérez",
+    "laboratory": "Laboratorio 1",
+    "role": "Asistente",
+    "image": "/assets/images/avatars/avatar_15.jpg",
+    "status": true
+  },
+  {
+    "id": 16,
+    "names": "Gabriela López",
+    "laboratory": "Laboratorio 1",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_16.jpg",
+    "status": true
+  },
+  {
+    "id": 17,
+    "names": "Hugo Díaz",
+    "laboratory": "Laboratorio 1",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_17.jpg",
+    "status": true
+  },
+  {
+    "id": 18,
+    "names": "Irene Fernández",
+    "laboratory": "Laboratorio 1",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_18.jpg",
+    "status": true
+  },
+  {
+    "id": 19,
+    "names": "Javier García",
+    "laboratory": "Laboratorio 1",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_19.jpg",
+    "status": true
+  },
+  {
+    "id": 20,
+    "names": "Karina González",
+    "laboratory": "Laboratorio 1",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_20.jpg",
+    "status": true
+  },
+  {
+    "id": 21,
+    "names": "Luis Rodríguez",
+    "laboratory": "Laboratorio 1",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_21.jpg",
+    "status": true
+  },
+  {
+    "id": 22,
+    "names": "Mariana López",
+    "laboratory": "Laboratorio 2",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_22.jpg",
+    "status": true
+  },
+  {
+    "id": 23,
+    "names": "Nicolás Pérez",
+    "laboratory": "Laboratorio 2",
+    "role": "Bioanalista",
+    "image": "/assets/images/avatars/avatar_23.jpg",
+    "status": true
+  }
+]

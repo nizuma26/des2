@@ -1,0 +1,1 @@
+export type Status = 'Borrador' | 'Pendiente' | 'Aprobado' | 'Rechazado' | 'Anulado' | 'Devuelto';

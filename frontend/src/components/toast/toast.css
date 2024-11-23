@@ -1,0 +1,6 @@
+.custom-close-button {
+  backdrop-filter: blur(20px);
+  background-color: rgba(253, 253, 253, 0.1);
+  color: #637381;
+  border: 1px solid transparent;
+}

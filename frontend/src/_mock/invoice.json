@@ -1,0 +1,66 @@
+[
+        {
+            "id": 1,
+            "code": "INV-0000001",
+            "patient": "Adam Boyle",
+            "date": "2024/02/20",
+            "status": "Pagado",
+            "total": "$2,331.63"
+        },
+        {
+            "id": 2,
+            "code": "INV-0000002",
+            "patient": "Ariana Lang",
+            "date": "2024/02/22",
+            "status": "Pendiente",
+            "total": "$2,283.97"
+        },
+        {
+            "id": 3,
+            "code": "INV-0000003",
+            "patient": "Lawson Bass",
+            "date": "2024/02/23",
+            "status": "Pagado",
+            "total": "$2,372.93"
+        },
+        {
+            "id": 4,
+            "code": "INV-0000004",
+            "patient": "Selina Boyer",
+            "date": "2024/02/25",
+            "status": "Atrasada",
+            "total": "$2,251.84"
+        },
+        {
+            "id": 5,
+            "code": "INV-0000005",
+            "patient": "Angelique Morse",
+            "date": "2024/02/26",
+            "status": "Atrasada",
+            "total": "$2,251.84"
+        },
+        {
+            "id": 6,
+            "code": "INV-0000006",
+            "patient": "Selina Boyer",
+            "date": "2024/02/26",
+            "status": "Pendiente",
+            "total": "$2,343.51"
+        },
+        {
+            "id": 7,
+            "code": "INV-0000007",
+            "patient": "Selina Boyer",
+            "date": "2024/03/20",
+            "status": "Pagado",
+            "total": "$2,251.84"
+        },
+        {
+            "id": 8,
+            "code": "INV-0000008",
+            "patient": "Selina Boyer",
+            "date": "2024/03/26",
+            "status": "Pendiente",
+            "total": "$2,251.84"
+        }
+    ]

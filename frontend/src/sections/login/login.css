@@ -1,0 +1,11 @@
+body,#root,#login_content {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 100%;
+    flex-direction: column
+}
+
+#auth_form{
+    width: 80%;
+    padding: 20px;
+}

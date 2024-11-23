@@ -1,0 +1,5 @@
+db.sqlite3
+env
+estructure.txt
+.env
+__pycache__

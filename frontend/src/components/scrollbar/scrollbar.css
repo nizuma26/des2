@@ -1,0 +1,11 @@
+.scrollbar {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    transition: all ease 1s;
+    scroll-snap-type: y mandatory;
+    scrollbar-color: rgba(99, 115, 129, 0.26) transparent;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}

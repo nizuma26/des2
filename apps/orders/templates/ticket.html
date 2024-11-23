@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Factura</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @page {
+        width: 58mm;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        font-size: 6px;
+        color: black !important;
+        min-height: 100%;
+      }
+      .mb {
+        padding-bottom: 1px;
+      }
+      .content {
+        width: 58mm;
+        padding: 5px;
+      }
+      .head-name {
+        margin-top: 0;
+        font-size: 9px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 0;
+      }
+      .head-details {
+        padding-bottom: 10px;
+        font-size: 4px;
+      }
+      .head-data {
+        margin-bottom: 6px;
+        text-align: left;
+        text-transform: uppercase;
+        font-size: 4px;
+      }
+      .table {
+          color: black;
+          width: 100%;
+        }
+      .table thead th {
+        background-color: #F4F6F8;
+      }
+      .table td,
+      .table th {
+        padding: 1px;
+        color: black;
+        font-size: 4px;
+      }
+      .img-logo {
+        margin-top: -5px;
+        width: 40px;
+        height: 40px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .stack-row {
+        display: flex;
+        flex-direction: row;
+      }
+      .stack-column {
+        display: flex;
+        flex-direction: column;
+      }
+      .content-end {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .contemt-start {
+        display: flex;
+        justify-content: flex-start;
+      }
+    </style>
+  </head>
+  <body>    
+    <div class="content">
+      <div class="stack-column text-center">
+        <img src="{{logo}}" class="img-logo">
+        <h6 class="head-name">{{ invoice.laboratory.name }}</h6>
+      </div>
+      <p class="text-center head-details">
+        Avenida Bolivar local Nº S/N sector centro, Barrancas, Estado Barinas<br />
+        {{ invoice.laboratory.document }}<br />
+      </p>
+
+      <p class="head-data">
+          Fecha de registro: {{ invoice.order_invoice.invoice_date}}<br />
+          Factura: {{ invoice.order_invoice.invoice_number }}<br />
+          Nombre o Razón social: {{ invoice.patient.full_name }}<br />
+          Cédula/Rif: {{ invoice.patient.cedula }}<br />
+      </p>
+
+      <table
+        class="table"
+        id="details"
+        style="margin-bottom: 0"
+      >
+        <thead>
+          <tr>
+            <th style="width: 40%">Examen</th>
+            <th style="width: 20%">Precio</th>
+            <th style="width: 20%">%Desc</th>
+            <th style="width: 20%">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for detail in invoice.order_detail.all %}
+          <tr>
+            <td>{{ detail.lab_test.name }}</td>
+            <td>{{ detail.price }}</td>
+            <td>{{ detail.discount }}</td>
+            <td>{{ detail.total }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="table-container">
+        <table class="table table-borderless table-sm text-uppercase mt-3">
+          <thead>
+            <tr>
+              <th style="width: 80%"></th>
+              <th style="width: 20%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="float-right font-weight-bold">Subtotal</td>
+              <td class="text-right">{{ invoice.main_total }}</td>
+            </tr>
+            <tr>
+              <td class="float-right font-weight-bold">Descuentos</td>
+              <td class="text-right">$200</td>
+            </tr>
+            <tr>
+              <td class="float-right font-weight-bold">
+                {{ invoice.tax.name }}%:
+              </td>
+              <td class="text-right">{{ invoice.tax.tax }}</td>
+            </tr>
+            <tr>
+              <td class="float-right font-weight-bold">Total</td>
+              <td class="text-right">${{ invoice.main_total }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
