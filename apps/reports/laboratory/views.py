@@ -21,16 +21,17 @@ class MostRequestedLabTestsViewSet(mixins.ListModelMixin, viewsets.GenericViewSe
             queryset = (
                 OrderDetail.objects
                 .select_related("lab_test")
-                .filter(order__laboratory=laboratory, order__order_date__range=[start_date, end_date])
+                .filter(order__laboratory=laboratory)
                 .exclude(status=status_exclude)
                 .values('lab_test_id', 'lab_test__name', 'lab_test__category__name')
                 .annotate(total_requests=Count('id', distinct=True))
                 .order_by('-total_requests')
             )
-            # if len(start_date) and len(end_date):
-            #     queryset = queryset.filter(order__order_date__range=[start_date, end_date])
+            if len(start_date) and len(end_date):
+                queryset = queryset.filter(order__order_date__range=[start_date, end_date])
 
             serialized_data = MostRequestedLabTestSerializer(queryset, many=True).data
+            print(serialized_data)
             return Response({"lab_tests": serialized_data}, status=status.HTTP_200_OK)
       
         except Exception as e:

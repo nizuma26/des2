@@ -13,8 +13,8 @@ interface SidebarOrientationProps {
 
 export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) => {
   
-  const handleOrientation = useSettingsLayout((state:any) => state.setNavConfig);
-  const orientationStore = useSettingsLayout((state:any) => state.orientationStore);
+  const handleOrientation = useSettingsLayout((state) => state.setNavConfig);
+  const orientationStore = useSettingsLayout((state) => state.orientationStore);
 
   const { palette } : {palette:any} = useTheme();
 
@@ -22,7 +22,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
     orientationStore === orientation
       ? {
           backgroundColor: 'background.selected.default',
-          boxShadow: palette.shadow.primary,
+          boxShadow: 'inherit',
         }
       : {
           backgroundColor: 'transparent',
@@ -48,7 +48,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             borderRadius: '4px',
             width: 8,
             height: 8,
-            background: orientationStore === 'vertical' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'vertical' ? gradient : 'inherit',
           }}
         />
         <Box
@@ -58,7 +58,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             width: '100%',
             height: 3,
             opacity: 0.48,
-            background: orientationStore === 'vertical' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'vertical' ? gradient : 'inherit',
           }}
         />
         <Box
@@ -69,7 +69,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             maxWidth: 12,
             height: 3,
             opacity: 0.24,
-            background: orientationStore === 'vertical' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'vertical' ? gradient : 'inherit',
           }}
         />
       </Stack>
@@ -80,7 +80,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             height: '100%',
             opacity: 0.24,
             borderRadius: '4px',
-            background: orientationStore === 'vertical' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'vertical' ? gradient : 'inherit',
           }}
         />
       </Box>
@@ -108,7 +108,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             borderRadius: '4px',
             width: 8,
             height: 8,
-            background: orientationStore === 'horizontal' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'horizontal' ? gradient : 'inherit',
           }}
         />
         <Box
@@ -118,7 +118,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             width: 12,
             height: 3,
             opacity: 0.48,
-            background: orientationStore === 'horizontal' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'horizontal' ? gradient : 'inherit',
           }}
         />
         <Box
@@ -129,7 +129,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             maxWidth: 12,
             height: 3,
             opacity: 0.24,
-            background: orientationStore === 'horizontal' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'horizontal' ? gradient : 'inherit',
           }}
         />
       </Stack>
@@ -140,7 +140,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             height: '100%',
             opacity: 0.24,
             borderRadius: '4px',
-            background: orientationStore === 'horizontal' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'horizontal' ? gradient : 'inherit',
           }}
         />
       </Box>
@@ -165,7 +165,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             borderRadius: '4px',
             width: 8,
             height: 8,
-            background: orientationStore === 'collapse' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'collapse' ? gradient : 'inherit',
           }}
         />
         <Box
@@ -175,7 +175,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             width: '100%',
             height: 3,
             opacity: 0.48,
-            background: orientationStore === 'collapse' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'collapse' ? gradient : 'inherit',
           }}
         />
         <Box
@@ -186,7 +186,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             maxWidth: 12,
             height: 3,
             opacity: 0.24,
-            background: orientationStore === 'collapse' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'collapse' ? gradient : 'inherit',
           }}
         />
       </Stack>
@@ -197,7 +197,7 @@ export const SidebarOrientation = ({ orientation } : SidebarOrientationProps) =>
             height: '100%',
             opacity: 0.24,
             borderRadius: '4px',
-            background: orientationStore === 'collapse' ? gradient : optionSelected.colorDefault,
+            background: orientationStore === 'collapse' ? gradient : 'inherit',
           }}
         />
       </Box>

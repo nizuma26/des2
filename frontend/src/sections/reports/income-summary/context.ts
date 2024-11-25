@@ -5,8 +5,8 @@ export const TABLE_COLUMNS: Array<Columns> = [
     { id: 'order_code', label: 'N° de orden' },
     { id: 'patient', label: 'Paciente' },
     { id: 'invoice_number', label: 'Nº Fac' },
+    { id: 'main_total', label: 'Total' },
     { id: 'amount_paid', label: 'Abonado' },
-    { id: 'total', label: 'Total' },
     { id: '', label: 'Saldo' },
 ]
 

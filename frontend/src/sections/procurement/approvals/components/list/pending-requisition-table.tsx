@@ -9,7 +9,6 @@ import { PurchaseRequisitionList } from '../../../../../types/procurements/purch
 import { REQUISITION_TABLE_COLUMNS, QUERY_KEY } from '../../context';
 
 import MuiDatatable from '../../../../../components/datatable/mui-datatable';
-import DateRange from '../../../../common/date-ranger-picker';
 import { useRouter } from '../../../../../routes/hooks';
 
 // ----------------------------------------------------------------------
@@ -54,7 +53,6 @@ export default function PendingRequisitionTable() {
             filterFields: ['code', 'laboratory', 'requester', 'request_date'],
           }}
           customCell={customCell}
-          toolbarComponents={<DateRange />}
           sx={{ inputStyle: { width: '100%' } }}
           onSelectedRow={(data) => router.replace(`/approval-requisitions/approval/${data.id}`)}
         />

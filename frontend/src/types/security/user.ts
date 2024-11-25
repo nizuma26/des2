@@ -1,4 +1,4 @@
-export interface UserRetrieve {
+export interface User {
   names: string;
   last_names: string;
   cedula: number | null;
@@ -24,11 +24,8 @@ export interface UserList {
   is_active: boolean;
 }
 
-type UserFields = Omit<UserList, 'id' | 'image' | 'role' | 'laboratory'> & {
+export type UserFormValues = Omit<UserList, 'id' | 'image' | 'role' | 'laboratory'> & {
   id?: number;
-};
-
-export interface User extends UserFields {
   names: string;
   last_names: string;
   image: File | null | string;

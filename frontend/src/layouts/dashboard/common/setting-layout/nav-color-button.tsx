@@ -17,14 +17,14 @@ export default function NavColorButton({ typeColor, title } : NavColorButtonProp
   const setNavColor = useSettingsLayout((state) => state.setNavColor);
   const navColor = useSettingsLayout((state) => state.navColor)
 
-  const { palette } = useTheme();
+  const theme = useTheme();
 
-  const gradient = linearGradient(palette.primary.light, palette.primary.main);
+  const gradient = linearGradient(theme.palette.primary.light, theme.palette.primary.main);
   const selected =
     navColor === typeColor
       ? {
           backgroundColor: gradient,
-          boxShadow: palette.shadow.primary,
+          boxShadow: 'inherit',
         }
       : {
           backgroundColor: 'transparent',

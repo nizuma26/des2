@@ -42,10 +42,10 @@ export default function OrderDetailSection() {
   };
 
   const updateStatus = (invoiceNumber: string) => {
-    updateData({
+    updateData<Order>({
       queryKey: [QUERY_KEYS.list, id],
-      fields: ['status', 'invoice_number'],
-      values: ['Facturado', invoiceNumber],
+      fields: ['is_invoiced', 'invoice_number'],
+      values: [true, invoiceNumber],
       many: false,
     });
   };
@@ -74,6 +74,7 @@ export default function OrderDetailSection() {
     status: data?.status,
     balance: data?.balance,
     detail: data?.order_detail,
+    is_invoiced: data?.is_invoiced,
     payments: []
   };
 

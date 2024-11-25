@@ -82,7 +82,6 @@ export default function LabTestForm({ values, invalidateQuery }: LabTestFormProp
   };
 
   const onSubmit = (data: LabTestFormValues) => {
-    console.log(form.formState.errors)
     if (!data?.parameters.length) {
       return ToastUtilities.warning({ msg: 'Debe agregar al menos un parametro en el examen' });
     }
@@ -118,7 +117,7 @@ export default function LabTestForm({ values, invalidateQuery }: LabTestFormProp
             <Tab label="Precios" {...a11yProps(3)} />
           </Tabs>
           <FormProvider {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} noValidate autoComplete="off">
+            <form id='labtest-form' onSubmit={form.handleSubmit(onSubmit)} noValidate autoComplete="off">
               <CardContent sx={{ px: 0 }}>
                 <CustomTabPanel value={value} index={0}>
                   <GeneralDataSection values={values} />
@@ -143,15 +142,16 @@ export default function LabTestForm({ values, invalidateQuery }: LabTestFormProp
                 }}
               >
                 <LoadingButton
-                  loading={false}
+                  loading={mutation.isPending}
                   sx={{ transition: '180ms all' }}
                   startIcon={<Iconify icon="eva:plus-fill" />}
                   type="submit"
+                  form="labtest-form"
                 >
                   Guardar
                 </LoadingButton>
                 <LoadingButton
-                  loading={false}
+                  loading={mutation.isPending}
                   sx={{ transition: '180ms all' }}
                   startIcon={<Iconify icon="eva:plus-fill" />}
                   type="submit"

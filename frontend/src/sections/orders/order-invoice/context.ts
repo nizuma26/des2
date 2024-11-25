@@ -8,7 +8,7 @@ export const TABLE_COLUMNS: Array<Columns> = [
   { id: 'patient_full_name', label: 'Paciente', sort: false },
   { id: 'patient_cedula', label: 'Cédula', sort: false },
   { id: 'main_total', label: 'Total', sort: false },
-  { id: 'amount_paid', label: 'Pagado', sort: false },
+  { id: 'amount_paid', label: 'Abonado', sort: false },
   { id: 'balance', label: 'Saldo', sort: false },
   { id: 'lab_tests', label: 'Examenes', align: 'center', sort: false },
 ];

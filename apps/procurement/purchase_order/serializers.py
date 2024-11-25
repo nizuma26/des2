@@ -2,7 +2,14 @@ from decimal import Decimal
 from datetime import datetime, timedelta
 from rest_framework import serializers
 
-from apps.procurement.models import AccountPayable, PurchaseOrder, PurchaseOrderDetail, Supplier, PurchaseRequisition, PurchaseRequisitionDetail
+from apps.procurement.models import (
+    AccountPayable, 
+    PurchaseOrder, 
+    PurchaseOrderDetail, 
+    Supplier, 
+    PurchaseRequisition, 
+    PurchaseRequisitionDetail
+)
 from apps.configuration.models import Currency, Laboratory
 
 # ------------------------------------------------
@@ -127,20 +134,20 @@ class CurrencySerializer(serializers.ModelSerializer):
         fields = ['id', 'exchange_rate']
 
 class SupplierSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
-        model=Supplier
-        fields = [
-            'id', 
-            'trade_name', 
-            'legal_name', 
-            'address', 
-            'phone_number', 
-            'rif', 
-            'email', 
-            'credit_limit', 
-            'credit_days'
-        ]
+        model = Supplier
+        fields = (
+            "id", 
+            "trade_name", 
+            "legal_name", 
+            "rif", 
+            "email", 
+            "phone_number",
+            "address",
+            "credit_limit",
+            "credit_days",
+        )
 
 class LaboratorySerializer(serializers.ModelSerializer):
 
@@ -170,22 +177,6 @@ class PurchaseOrderRetrieveSerializer(serializers.ModelSerializer):
             'exchange_rate',
             'purchase_order_detail',
         ]
-
-class SupplierSearchSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Supplier
-        fields = (
-            "id", 
-            "trade_name", 
-            "legal_name", 
-            "rif", 
-            "email", 
-            "phone_number",
-            "address",
-            "credit_limit",
-            "credit_days",
-        )
 
 class RequisitionDetailSerializer(serializers.ModelSerializer):
 

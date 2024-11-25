@@ -1,1 +1,1 @@
-export { default } from './async-autocomplete.tsx'
+export { default } from './async-autocomplete'

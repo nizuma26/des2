@@ -66,7 +66,9 @@ export interface Order {
   cost_type: CostType;
   payment_type: PaymentType;
   status: Status;
+  is_invoiced: boolean;
   balance: number;
+  invoice_number?: string;
   detail: OrderDetail[];
   payments: PatientPayment[]
 }

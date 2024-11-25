@@ -16,7 +16,7 @@ import { useForm } from 'react-hook-form';
 
 import { newUser, editUser } from '../../../../api/security/user';
 
-import { User } from '../../../../types/security/user';
+import { UserFormValues } from '../../../../types/security/user';
 
 import { useMutateData } from '../../../../hooks/use-mutate-data';
 import { useRouter } from '../../../../routes/hooks';
@@ -26,17 +26,17 @@ import Iconify from '../../../../components/iconify';
 import { RouterLink } from '../../../../routes/components';
 import Dropzone from '../../../../components/dropzone/dropzone';
 import ControlledSwitch from '../../../../components/controlled/controlled-switch';
-import AutocompleteRoles from './autocomplete-roles';
-import AutocompleteLabs from './autocomplete-labs';
+import RoleSearch from './role-search';
+import LaboratorySearch from './laboratory-search';
 import CashRegisterSearch from './cash-register-search';
 
 interface UserFormProps {
-  values: User;
+  values: UserFormValues;
   invalidateQuery: () => void;
 }
 
 export default function UserForm({ values, invalidateQuery }: UserFormProps) {
-  const form = useForm<User>({
+  const form = useForm<UserFormValues>({
     defaultValues: values,
   });
 
@@ -45,7 +45,6 @@ export default function UserForm({ values, invalidateQuery }: UserFormProps) {
     formState: { errors },
     setValue,
     control,
-    clearErrors,
     handleSubmit,
   } = form;
 
@@ -59,7 +58,7 @@ export default function UserForm({ values, invalidateQuery }: UserFormProps) {
 
   const mutate = useMutateData();
 
-  const onSubmit = (data: User) => {
+  const onSubmit = (data: UserFormValues) => {
     mutate.submit({
       promise: mutation.mutateAsync({ ...data }),
       onSuccess: () => {
@@ -67,16 +66,6 @@ export default function UserForm({ values, invalidateQuery }: UserFormProps) {
         router.push('/user');
       },
     });
-  };
-
-  const handleChangeRole = (id: number | null) => {
-    setValue('groups', [Number(id)]);
-    if (id !== null && !!errors.groups) clearErrors('groups');
-  };
-
-  const handleChangeLaboratory = (id: number | null) => {
-    setValue('laboratory', id);
-    if (id !== null && !!errors.laboratory) clearErrors('laboratory');
   };
 
   const handleChangeImage = (file: File | null) => {
@@ -187,17 +176,13 @@ export default function UserForm({ values, invalidateQuery }: UserFormProps) {
                   error={!!errors.password}
                   helperText={errors.password?.message}
                 />
-                <AutocompleteRoles
-                  register={register}
-                  errors={errors}
-                  handleChangeRole={handleChangeRole}
-                  defaultValue={Number(values?.groups)}
+                <RoleSearch
+                  control={control}
+                  name='groups'
                 />
-                <AutocompleteLabs
-                  register={register}
-                  errors={errors}
-                  handleChangeLaboratory={handleChangeLaboratory}
-                  defaultValue={Number(values?.laboratory)}
+                <LaboratorySearch
+                  control={control}
+                  name='laboratory'
                 />
                 <CashRegisterSearch control={control} userId={values?.id} />
               </Box>

@@ -1,6 +1,7 @@
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { Theme } from '@mui/material';
 
 import { Controller, Control, Path, FieldValues } from 'react-hook-form';
 
@@ -34,7 +35,7 @@ function ControlledDatePicker<TField extends FieldValues>({
         borderRadius: '12px',
         borderColor: '#2196f3',
         borderWidth: '1px',
-        boxShadow: (theme) => theme.customShadows.paper,
+        boxShadow: (theme:Theme) => theme.customShadows.paper,
         backgroundColor: 'background.paper',
       },
     },    

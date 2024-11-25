@@ -46,21 +46,6 @@ const lightMode = {
     paper: grey[0],
     default: grey[100],
     neutral: grey[200],
-    selected: {
-      default: optionSelected.lightBg,
-    },
-    transparent: {
-      default: transparent.light,
-      popover: 'rgba(255, 255, 255, 0.9)',
-    }
-  },
-  hover: {
-    bgDefault: grey[700],
-    textDefault: grey[100]
-  },
-  shadow: {
-    primary: 'rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px',
-    intence: 'rgba(145, 158, 171, 0.24) 0px 0px 2px 0px, rgba(145, 158, 171, 0.24) -20px 20px 40px -4px'
   },
   action: {
     ...action,
@@ -80,21 +65,6 @@ const darkMode = {
     paper: grey[800],
     default: grey[900],
     neutral: grey[1000],
-    selected: {
-      default: optionSelected.darkBg
-    },
-    transparent: {
-      default: transparent.dark,
-      popover: 'rgba(33, 43, 54, 0.9)',
-    }
-  },
-  hover: {
-    bgDefault: grey[400],
-    textDefault: grey[900]
-  },
-  shadow: {
-    primary: 'rgba(0, 0, 0, 0.2) 0px 0px 2px 0px, rgba(0, 0, 0, 0.12) 0px 12px 24px -4px',
-    intence: 'rgba(0, 0, 0, 0.24) -40px 40px 80px -8px'
   },
   action: {
     ...action,

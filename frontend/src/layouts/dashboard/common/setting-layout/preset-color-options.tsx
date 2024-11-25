@@ -4,11 +4,11 @@ import Stack from '@mui/material/Stack';
 import { useSettingsLayout } from '../../../../store/settings';
 import { alpha as hexAlpha } from '@mui/material/styles';
 
-import { PresetsColor } from '../../../../theme/presets-color';
+import { PresetsColor } from '../../../../theme/types';
 
 import { blue, success, secondary, warning, error, cyan } from '../../../../theme/presets-color';
 
-import Iconify from '../../../../components/iconify';
+import { SvgIcon } from 'src/components/svg-color';
 
 interface PresetColorProps {
   colorType: PresetsColor;
@@ -63,9 +63,9 @@ export function PresetColor({ colorType }: PresetColorProps) {
           }),
         })}
       >
-        <Iconify
+        <SvgIcon
           width={isSelected ? 12 : 0}
-          icon="eva:checkmark-fill"
+          icon="ic_check"
           sx={(theme) => ({
             color: theme.palette.getContrastText(color),
             transition: theme.transitions.create('all', {

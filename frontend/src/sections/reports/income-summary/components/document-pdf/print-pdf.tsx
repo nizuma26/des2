@@ -19,7 +19,7 @@ const PrintPDF = ({ data, laboratory, amountPaid }: PrintInventoryProps) => {
   return (
     <BlobProvider document={<InventoryPDF data={data} laboratory={laboratory} amountPaid={amountPaid} />}>
       {({ url, blob }) => (
-        <a href={url} target="_blank">
+        <a href={url ?? '#'} target="_blank">
           <Button
             fullWidth
             variant="contained"

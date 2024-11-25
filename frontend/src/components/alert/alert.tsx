@@ -15,7 +15,7 @@ import Iconify from '../iconify';
 
 const AlertDialog = memo(function AlertDialog() {
 
-  const { isOpen, title, content, icon, fn, closeAlert, customBtn } = useAlert();
+  const { isOpen, title, content, icon, fn, closeAlert } = useAlert();
 
   const onConfirm = () => {
     fn && fn();
@@ -47,14 +47,9 @@ const AlertDialog = memo(function AlertDialog() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          {!!customBtn ? (
-            {custombtn} 
-          ) : (
             <Button variant="contained" color="inherit" onClick={onConfirm}>
               Aceptar
             </Button>
-          )}
-
           <Button
             sx={{ bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08) }}
             onClick={closeAlert}

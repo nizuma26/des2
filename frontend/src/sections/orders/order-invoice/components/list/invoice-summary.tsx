@@ -10,19 +10,17 @@ import { OrderToBillList } from '../../../../../types/orders/order-invoice';
 
 function InvoiceSummary({ orders, setValue }: InvoiceSummaryProps) {
 
-  console.log(orders)
-
   const calculateMainTotal = () => {
     return orders.reduce(
       (previousValue: number, currentValue: OrderToBillList) =>
-        previousValue + (currentValue?.main_total || 0),
+        previousValue + Number(currentValue?.main_total || 0),
       0
     )};
   
   const calculateSecondaryTotal = () => {
       return orders.reduce(
         (previousValue: number, currentValue: OrderToBillList) =>
-          previousValue + (currentValue?.secondary_total || 0),
+          previousValue + Number(currentValue?.secondary_total || 0),
         0
       )};
 
@@ -106,7 +104,7 @@ function InvoiceSummary({ orders, setValue }: InvoiceSummaryProps) {
             py="3px"
             px={1}
           >
-            {total}
+            {total?.toFixed(2)}
           </Box>
         </Stack>
         <Stack width={1} direction="column" typography="subtitle2" gap="5px">

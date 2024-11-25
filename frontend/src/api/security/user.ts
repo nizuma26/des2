@@ -1,12 +1,12 @@
 import { axiosPrivate } from '../axios';
-import { User } from '../../types/security/user';
+import { UserFormValues } from '../../types/security/user';
 import { addValidDataToFormData } from '../../utils/add-valid-data';
 
-export const newUser = async (data: User) => {
+export const newUser = async (data: UserFormValues) => {
     const formData = new FormData();
     addValidDataToFormData(data, formData);
     formData.append('image', data?.image !== null ? data?.image : ''); 
-    formData.append('groups', String(data.groups)); 
+    formData.append('groups', String([data.groups])); 
     const response = await axiosPrivate.post('api/users/user/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -15,11 +15,11 @@ export const newUser = async (data: User) => {
     return response.data;
 };
 
-export const editUser = async (data: User) => {
+export const editUser = async (data: UserFormValues) => {
     const formData = new FormData();
     addValidDataToFormData(data, formData);
     formData.append('image', data.image !== null ? data.image : '');
-    formData.append('groups', String(data.groups)); 
+    formData.append('groups', String([data.groups])); 
     const response = await axiosPrivate.put(`api/users/user/${data.id}/`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',

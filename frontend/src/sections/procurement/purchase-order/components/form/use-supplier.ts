@@ -6,7 +6,7 @@ import { Supplier } from '../../../../../types/procurements/supplier';
 
 export type SupplierSeleted = Pick<
   Supplier,
-  'legal_name' | 'address' | 'email' | 'phone_number' | 'rif' | 'credit_days' | 'credit_limit'
+  'id' | 'legal_name' | 'address' | 'email' | 'phone_number' | 'rif' | 'credit_days' | 'credit_limit'
 >;
 
 type State = {

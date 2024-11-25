@@ -1,52 +1,10 @@
-import { alpha } from '@mui/material/styles';
+import { alpha, type Theme, type  Components} from '@mui/material/styles';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 
 // ----------------------------------------------------------------------
 
-export function overrides(theme:any) {
+export function overrides(theme:Theme):Components {
   return {
-    MuiCssBaseline: {
-      styleOverrides: {
-        '*': {
-          boxSizing: 'border-box',
-        },
-        html: {
-          margin: 0,
-          padding: 0,
-          width: '100%',
-          height: '100%',
-          WebkitOverflowScrolling: 'touch',
-        },
-        body: {
-          margin: 0,
-          padding: 0,
-          width: '100%',
-          height: '100%',
-        },
-        '#root': {
-          width: '100%',
-          height: '100%',
-        },
-        input: {
-          '&[type=number]': {
-            MozAppearance: 'textfield',
-            '&::-webkit-outer-spin-button': {
-              margin: 0,
-              WebkitAppearance: 'none',
-            },
-            '&::-webkit-inner-spin-button': {
-              margin: 0,
-              WebkitAppearance: 'none',
-            },
-          },
-        },
-        img: {
-          maxWidth: '100%',
-          display: 'inline-block',
-          verticalAlign: 'bottom',
-        },
-      },
-    },
     MuiBackdrop: {
       styleOverrides: {
         root: {
@@ -81,9 +39,6 @@ export function overrides(theme:any) {
           backgroundColor: theme.palette.text.primary,
           fontSize: '0.875rem',
           borderRadius: '8px',
-          '&:hover': {
-            backgroundColor: theme.palette.hover.bgDefault,
-          },
         },
         deleteIcon: {
           color: theme.palette.text.secondary,
@@ -100,7 +55,7 @@ export function overrides(theme:any) {
           flexDirection: 'column',
           overflow: 'visible',
           boxShadow: theme.customShadows.card,
-          borderRadius: theme.shape.borderRadius,
+          borderRadius: 16,
           position: 'relative',
           zIndex: 0, // Fix Safari overflow: hidden with border radius
         },
@@ -151,7 +106,6 @@ export function overrides(theme:any) {
     MuiPaper: {
       defaultProps: {
         elevation: 0,
-        background: '#fff',
       },
     },
     MuiDialog: {
@@ -167,7 +121,7 @@ export function overrides(theme:any) {
       styleOverrides: {
         paper: {
           backdropFilter: 'blur(20px)',
-          backgroundColor: theme.palette.background.transparent.popover,
+          backgroundColor: alpha(theme.palette.background.paper, 0.9),
           boxShadow: theme.customShadows.card,
           backgroundImage: 'url("/assets/cyan-blur.png"), url("/assets/red-blur.png")',
           backgroundRepeat: 'no-repeat, no-repeat',
@@ -181,7 +135,7 @@ export function overrides(theme:any) {
       styleOverrides: {
         paper: {
           backdropFilter: 'blur(20px)',
-          backgroundColor: theme.palette.background.transparent.popover,
+          backgroundColor: alpha(theme.palette.background.paper, 0.9),
           boxShadow: theme.customShadows.card,
           backgroundImage: 'url("/assets/cyan-blur.png"), url("/assets/red-blur.png")',
           backgroundRepeat: 'no-repeat, no-repeat',
@@ -248,8 +202,7 @@ export function overrides(theme:any) {
       styleOverrides: {
         paper: {
           backdropFilter: 'blur(20px)',
-          boxShadow: theme.palette.shadow.intence,
-          backgroundColor: theme.palette.background.transparent.default,
+          backgroundColor: alpha(theme.palette.background.default, 0.9),
           backgroundImage: 'url("/assets/cyan-blur.png"), url("/assets/red-blur.png")',
           backgroundRepeat: 'no-repeat, no-repeat',
           backgroundPosition: 'right top, left bottom',

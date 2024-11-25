@@ -3,7 +3,7 @@ import { Text, View } from '@react-pdf/renderer';
 
 import { styles } from './styles';
 
-import { IncomeSummary } from '../../../../../types/reports/income-summary';
+import { IncomeSummary } from '../../../../../../types/reports/income-summary';
 
 interface TableBodyProps {
   data: IncomeSummary[];

@@ -8,6 +8,7 @@ import { useQueryClient } from '@tanstack/react-query';
 
 import { UserList } from '../../../../types/security/user';
 import { ChangeStates } from '../../../../types';
+import { RowSelectedOptions } from 'src/components/datatable/types';
 
 import { bulkDelete, changeStates } from '../../../../api/get-data';
 
@@ -20,6 +21,7 @@ import { headLabel } from '../context';
 import MuiDatatable from '../../../../components/datatable/mui-datatable';
 import Label from '../../../../components/label';
 import PopupOptions from './popup-options';
+import { onlyNumbers } from 'src/utils/type-guard';
 
 // ----------------------------------------------------------------------
 
@@ -34,16 +36,6 @@ export default function UserTable() {
 
   const mutate = useMutateData();
 
-  const handleBulkDelete = (selected: Array<number>, selectAll: (value: boolean) => void) => {
-    mutate.submit({
-      promise: bulkDelete('api/users/user/bulk_destroy/', selected),
-      onSuccess: () => {
-        queryClient.invalidateQueries({ queryKey: ['users'] });
-        selectAll(false);
-      },
-    });
-  };
-
   const handleChangeStates = ({ action = 'disable', selected, selectAll }: ChangeStates) => {
     mutate.submit({
       promise: changeStates('api/users/user/change_states/', selected, action),
@@ -57,24 +49,17 @@ export default function UserTable() {
 
   const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
-  const rowSelectedOptions = [
-    {
-      tooltip: 'Eliminar',
-      icon: 'solar:trash-bin-minimalistic-bold',
-      alertOptions: {
-        content: `¿Esta seguro de eliminar a los usuarios seleccionados?`,
-      },
-      fn: (selected: Array<number>, selectAll: (value: boolean) => void) =>
-        handleBulkDelete(selected, selectAll),
-    },
+  const rowSelectedOptions:RowSelectedOptions[] = [
     {
       tooltip: 'Inactivar',
       icon: 'material-symbols:no-sim',
       alertOptions: {
         content: `¿Esta seguro de inactivar a los usuarios seleccionados?`,
       },
-      fn: (selected: Array<number>, selectAll: (value: boolean) => void) =>
-        handleChangeStates({ action: 'disable', selected: selected, selectAll: selectAll }),
+      fn: (selected, selectAll) =>{
+        const arrayIds = onlyNumbers(selected)
+        handleChangeStates({ action: 'disable', selected: arrayIds, selectAll: selectAll })
+      }
     },
     {
       tooltip: 'Activar',
@@ -82,8 +67,10 @@ export default function UserTable() {
       alertOptions: {
         content: `¿Esta seguro de activar a los usuarios seleccionados?`,
       },
-      fn: (selected: Array<number>, selectAll: (value: boolean) => void) =>
-        handleChangeStates({ action: 'enable', selected: selected, selectAll: selectAll }),
+      fn: (selected, selectAll) =>{
+        const arrayIds = onlyNumbers(selected)
+        handleChangeStates({ action: 'enable', selected: arrayIds, selectAll: selectAll })
+      }
     },
   ];
 

@@ -32,7 +32,7 @@ const get = async ({ url }: GetRequest) => {
 
 export const useSearch = ({ method = 'GET', url, body, delay=200,  minLength=1,}: useSearchProps) => {
 
-  const [ data, setData ] = useState<Record<string, any>>([]);
+  const [ data, setData ] = useState<readonly any[]>([]);
 
   const [ hasError, setHasError ] = useState(false);
 

@@ -7,7 +7,7 @@ import { bgBlur } from '../../theme/css';
 
 // ----------------------------------------------------------------------
 
-const Chart = styled(ApexChart)(({ theme } : {theme: any}) => ({
+const Chart = styled(ApexChart)(({ theme }) => ({
   '& .apexcharts-canvas': {
     // Tooltip
     '& .apexcharts-tooltip': {
@@ -15,7 +15,7 @@ const Chart = styled(ApexChart)(({ theme } : {theme: any}) => ({
         color: theme.palette.background.default,
       }),
       color: theme.palette.text.primary,
-      boxShadow: theme.palette.shadow.intence,
+      boxShadow: theme.customShadows.paper,
       borderRadius: theme.shape.borderRadius * 1.25,
       '&.apexcharts-theme-light': {
         borderColor: 'transparent',

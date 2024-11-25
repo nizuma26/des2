@@ -16,8 +16,8 @@ export const bulkDelete = async (url: string, ids: number[]) => {
     return response.data;
 }
 // Realiza una peticion PUT para cambiar el estado de uno o muchos objetos en el servidor
-export const changeStates = async (url: string, ids: number[], newStatus: string) => {
-    const response = await axiosPrivate.put(url, { ids, newStatus });
+export const changeStates = async (url: string, ids: number[], action: string) => {
+    const response = await axiosPrivate.put(url, { ids, action });
     return response.data;
 }
 //Realiza una peticion PUT al servidor para hacer un borrado logico

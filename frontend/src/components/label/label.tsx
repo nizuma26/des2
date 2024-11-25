@@ -12,8 +12,8 @@ interface LabelProps {
   children: React.ReactNode;
   color?: string;
   variant?: string;
-  startIcon?: object
-  endIcon?: object;
+  startIcon?: React.ReactNode
+  endIcon?: React.ReactNode;
   sx?: SxProps;
 }
 

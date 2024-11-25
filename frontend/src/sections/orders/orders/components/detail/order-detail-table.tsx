@@ -39,7 +39,7 @@ export default function OrderDetailTable({
   const customCell = [
     {
       columnIndex: 0,
-      render: (data: OrderDetail, rowIndex: number) => (
+      render: (data: OrderDetail) => (
         <Stack direction="row" alignItems="center" spacing={2}>
           <ListItemText>
             <Typography variant="subtitle2" fontSize={13}>

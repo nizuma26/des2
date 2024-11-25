@@ -8,7 +8,6 @@ export const newBeginningInventory = async(data:BeginningInventoryFormData) => {
     formData.append('note', data.note);
     formData.append('status', data.status);
     formData.append('last_date', dayjs(data.last_date).format('YYYY-MM-DD'));
-    formData.append('subtotal', String(data.subtotal));
     formData.append('total', String(data.total));
     formData.append('detail', JSON.stringify(data.detail));
     const response = await axiosPrivate.post('api/inventory/beginning-inventory/', formData)
@@ -20,7 +19,6 @@ export const editBeginningInventory = async(data:BeginningInventoryFormData) => 
     formData.append('note', data.note);
     formData.append('status', data.status);
     formData.append('last_date', dayjs(data.last_date).format('YYYY-MM-DD'));
-    formData.append('subtotal', String(data.subtotal));
     formData.append('total', String(data.total));
     formData.append('detail', JSON.stringify(data.detail));
     const response = await axiosPrivate.put(`api/inventory/beginning-inventory/${data.id}/`, formData)

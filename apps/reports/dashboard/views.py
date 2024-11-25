@@ -70,7 +70,7 @@ class PatientsTreatedThisYearViewSet(mixins.ListModelMixin, viewsets.GenericView
             monthly_data = (
                 Order.objects.filter(order_date__year=current_year)
                 .values('order_date__month')  # Agrupar por mes
-                .annotate(total_patients=Count('patient', distinct=True))  # Contar pacientes únicos
+                .annotate(total_patients=Count('patient'))  # Contar pacientes únicos
             )
 
             for data in monthly_data:

@@ -24,7 +24,6 @@ const LaboratoryInfo = ({
     <Text style={styles.invoiceNumber}>Fecha de emisión: {invoiceDate} </Text>
     <Text style={styles.invoiceNumber}>Nombre o Razón Social: {nameOrTradeName} </Text>
     <Text style={styles.invoiceNumber}>Cédula/Rif: {ciOrRif} </Text>
-    <Text style={styles.invoiceNumber}>Condición de pago: {paymentCondition} </Text>
   </View>
 );
 

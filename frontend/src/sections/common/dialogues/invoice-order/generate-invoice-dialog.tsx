@@ -74,7 +74,6 @@ function GenerateInvoiceDialog({
   const { submit } = useMutateData();
 
   const sendForm = (data: OrderInvoiceFormValues) => {
-    console.log(data)
     submit({
       promise: mutation.mutateAsync({ ...data }),
       onSuccess: (response) => {

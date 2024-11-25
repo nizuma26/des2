@@ -120,8 +120,9 @@ class UserViewSet(ModelViewSet):
     def change_states(self, request):
         data = request.data
         user = self.get_serializer().Meta.model
+        print('DATAAAAAA: ', data)
         try:
-            if data['action'] == 'disable':
+            if data.get('action') == 'disable':
                 disabled = user.objects.filter(id__in=data['ids'], is_active=True).update(is_active=False)
                 return Response({'message': 'Usuarios inactivados exitosamente!', 'total': disabled}, status=status.HTTP_200_OK)
             else:

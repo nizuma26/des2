@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
+import { alpha } from '@mui/material/styles';
 
 import Label from '../../../components/label';
-import { RouterLink } from '../../../routes/components';
+import { useRouter } from 'src/routes/hooks';
 
 // ----------------------------------------------------------------------
 
@@ -16,30 +16,34 @@ interface ModuleLinkProps {
 }
 
 const ModuleLink = ({ moduleTitle, sectionTitle, path, handleClose } : ModuleLinkProps) => {
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(path);
+    handleClose();
+  }
   
   return (
     <ListItemButton
-      component={RouterLink}
-      href={path}
       sx={{
         borderRadius: '8px',
         borderImage: 'initial',
         borderStyle: 'dashed',
         borderWidth: '1px',
+        p: 2,
         borderColor: 'transparent transparent rgba(145, 158, 171, 0.2)',
         '&:hover': {
           bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
           borderColor: 'primary.main',
         },
       }}
-      onClick={handleClose}
+      onClick={handleClick}
     >
       <Box flex='1 1 auto'>
-        <Box sx={{ fontSize: 14, textAlign: 'left', textTransform: 'capitalize', fontWeight: 'bold'}} component="span">
+        {}
+        <Typography variant='subtitle2'>
           {moduleTitle}
-        </Box>
-        <Typography sx={{ fontSize: 14, textAlign: 'left', color: 'text.secondary' }} component="p">
-          {path}
         </Typography>
       </Box>
       <Label color={'primary'}>{sectionTitle}</Label>

@@ -7,7 +7,7 @@ import { usePathname } from '../../../../../routes/hooks';
 
 import { SupplierSearchProps } from './types';
 import { AutocompleteOptions } from '../../../../../types';
-import { Supplier } from '../../../../../types/procurements/supplier';
+import { SupplierList, Supplier } from '../../../../../types/procurements/supplier';
 
 import { useSearch } from '../../../../../hooks/use-search';
 import { useSupplier } from './use-supplier';
@@ -21,16 +21,18 @@ import ControlledAutocomplete from '../../../../../components/controlled/control
 
 //------------------------------------------------------------------------------------
 
-export default function SupplierSearch({
-  setSupplierId,
-  control,
-}: SupplierSearchProps) {
+type SupplierSearch = Omit<SupplierList, 'is_active'> & {
+  address: string;
+  credit_limit: number;
+  credit_days: number;
+}
 
+export default function SupplierSearch({ setSupplierId, control }: SupplierSearchProps) {
   const showDialog = useDialogStore((state) => state.showDialog);
 
   const { setSupplier } = useSupplier();
   const {
-    data = [] as Supplier[],
+    data = [] as SupplierSearch[],
     isLoading,
     hasError,
     autocomplete,
@@ -42,21 +44,19 @@ export default function SupplierSearch({
     minLength: 2,
   });
 
-  const options = !!data.length
-    ? data.map((p:Supplier) => {
-        return { value: p.id, label: `${p.trade_name} / ${p.rif}` };
-      })
-    : [];
+  const options = data.map((p) => {
+    return { value: p.id, label: `${p.trade_name} / ${p.rif}` };
+  });
 
   if (hasError) ToastUtilities.error({ msg: 'Ha ocurrido un error al consultar los datos' });
 
   const onChange = (selected: AutocompleteOptions | null) => {
     const supplierSelected =
-      data?.find((opt:Supplier) => {
+      data?.find((opt: SupplierSearch) => {
         return opt.id === selected?.value;
       }) ?? null;
-      setSupplier(supplierSelected);
-      setSupplierId(supplierSelected?.id ?? null);
+    setSupplier(supplierSelected);
+    setSupplierId(supplierSelected?.id ?? null);
   };
 
   const onInputChange = (value: string, reason: 'input' | 'reset' | 'clear') => {
@@ -73,9 +73,8 @@ export default function SupplierSearch({
     showDialog(
       <CreateSupplierDialog
         onSubmit={(data: Supplier) => {
-          setSupplier({ ...data }),
-          setSupplierId(data?.id ?? null);
-          setData([{...data}])
+          setSupplier({ ...data }), setSupplierId(data?.id ?? null);
+          setData([{ ...data }]);
         }}
       />,
       'md'

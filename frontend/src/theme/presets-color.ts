@@ -1,5 +1,24 @@
-// SETUP COLORS
-export type PresetsColor = 'blue' | 'secondary' | 'cyan' | 'success' | 'warning' | 'error';
+import { PresetsColor } from "./types";
+
+declare module '@mui/material/styles/createPalette' {
+  interface CommonColors {
+    white: string;
+    black: string;
+  }
+  interface TypeBackground {
+    neutral: string;
+  }
+  interface SimplePaletteColorOptions {
+    lighter: string;
+    darker: string;
+    gradient: string;
+  }
+  interface PaletteColor {
+    lighter: string;
+    darker: string;
+    gradient: string;
+  }
+}
 
 export const grey = {
   0: '#FFFFFF',
@@ -94,6 +113,7 @@ const base = {
   success,
   warning,
   error,
+  grey,
   cyan,
 };
 

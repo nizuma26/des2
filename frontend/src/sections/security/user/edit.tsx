@@ -9,9 +9,12 @@ import { useParams } from 'react-router-dom';
 
 import { useQueryClient } from '@tanstack/react-query';
 
+import { UserFormValues } from 'src/types/security/user';
+
+import { useGetData } from '../../../hooks/use-get-data';
+
 import Breadcrumb from '../../../components/breadcrumb/breadcrumb';
 import UserForm from './components/user-form';
-import { useGetData } from '../../../hooks/use-get-data';
 
 // ----------------------------------------------------------------------
 
@@ -31,7 +34,7 @@ export default function UserEdit() {
     queryClient.invalidateQueries({queryKey: ['user', id]});
   }
 
-  const DEFAULT_VALUES = {
+  const DEFAULT_VALUES:UserFormValues = {
     id: data?.id,
     names: data?.names,
     last_names: data?.last_names,

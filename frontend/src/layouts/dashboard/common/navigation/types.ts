@@ -3,13 +3,12 @@ import { ReactNode } from "react";
 export interface NavSubItem {
   key: string;
   title: string;
-  path: string;
+  path?: string;
   icon?: ReactNode;
   permissions?: string[];
 }
 
-export type NavItem = Omit<NavSubItem, 'path'> & {
-  path?: string;
+export type NavItem = Omit<NavSubItem, 'icon'> & {
   icon: ReactNode;
   children?: NavSubItem[]
 }

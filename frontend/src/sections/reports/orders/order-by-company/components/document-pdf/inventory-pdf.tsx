@@ -5,8 +5,8 @@ import TableBody from './table-body';
 
 import { styles } from './styles';
 
-import { IncomeSummary } from '../../../../../types/reports/income-summary';
-import { LaboratoryDataForReporting } from '../../../../../types/configuration/laboratory';
+import { IncomeSummary } from '../../../../../../types/reports/income-summary';
+import { LaboratoryDataForReporting } from '../../../../../../types/configuration/laboratory';
 
 interface InvoicePdfProps {
   data: IncomeSummary[];

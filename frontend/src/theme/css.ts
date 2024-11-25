@@ -1,10 +1,9 @@
+import type { CSSObject } from '@mui/material/styles';
 import { alpha } from '@mui/material/styles';
 import { dividerClasses } from '@mui/material/Divider';
 import { checkboxClasses } from '@mui/material/Checkbox';
 import { menuItemClasses } from '@mui/material/MenuItem';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
-
-import { BgBlur } from './types';
 
 // ----------------------------------------------------------------------
 
@@ -61,8 +60,14 @@ export const menuItem = (theme:any) => ({
 });
 
 // ----------------------------------------------------------------------
+export type BgBlur = {
+  color: string;
+  blur?: number;
+  imgUrl?: string;
+  opacity?: number;
+};
 
-export function bgBlur(props:BgBlur) {
+export function bgBlur(props:BgBlur):CSSObject {
   const color = props?.color || '#000000';
   const blur = props?.blur || 6;
   const opacity = props?.opacity || 0.8;

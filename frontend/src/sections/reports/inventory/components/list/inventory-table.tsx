@@ -11,7 +11,7 @@ import { TABLE_COLUMNS } from '../../context';
 
 import MuiDatatable from '../../../../../components/datatable/mui-datatable';
 import Label from '../../../../../components/label';
-import PrintInventoryPDF from '../document-pdf/print-invoice';
+import PrintInventoryPDF from '../document-pdf/print-pdf';
 
 // ----------------------------------------------------------------------
 

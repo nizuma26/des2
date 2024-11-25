@@ -1,15 +1,15 @@
 import { axiosPrivate } from "../axios";
 
-import { Generic } from "../../types";
+import { GenericValues } from "../../types";
 
-export const newBrand = async(data:Generic) => {
+export const newBrand = async(data:GenericValues) => {
     const formData = new FormData();
     formData.append('data', JSON.stringify(data));
     const response = await axiosPrivate.post('api/inventory/brand/', formData)
     return response.data
 }
 
-export const editBrand = async(data:Generic) => {
+export const editBrand = async(data:GenericValues) => {
     const formData = new FormData();
     formData.append('data', JSON.stringify(data));
     const response = await axiosPrivate.put(`api/inventory/brand/${data.id}/`, formData)

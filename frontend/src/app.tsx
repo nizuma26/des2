@@ -1,6 +1,6 @@
 import './global.css';
 
-import ThemeProvider from './theme/index';
+import ThemeProvider from './theme/theme-provider';
 import { useScrollToTop } from './hooks/use-scroll-to-top';
 import Router from './routes/sections';
 

@@ -238,6 +238,7 @@ class OrderRetrieveSerializer(serializers.ModelSerializer):
             "order_detail",
             "cost_type",
             "payment_type",
+            "is_invoiced",
             "balance"
         )
     

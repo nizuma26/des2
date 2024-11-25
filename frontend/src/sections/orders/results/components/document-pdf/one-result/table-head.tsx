@@ -14,7 +14,7 @@ const TableHead = () => (
       <Text>UNIDADES</Text>
     </View>
     <View style={styles.theader}>
-      <Text>VALORES DE REFERENCIA</Text>
+      <Text>VALORES DE NORMALES</Text>
     </View>
   </View>
 );

@@ -72,6 +72,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         onCollapse={() => setNavConfig(collapse)}
         orientation={orientationStore}
         navColor={navColor}
+        navData={filterNavData}
+        loading={isPending}
       />
 
       <Box

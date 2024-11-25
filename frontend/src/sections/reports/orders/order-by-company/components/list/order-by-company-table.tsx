@@ -12,7 +12,7 @@ import { OrderByCompany } from '../../../../../../types/reports/orders/order-by-
 import { useGetData } from '../../../../../../hooks/use-get-data';
 import useDateRange from '../../../../../../hooks/use-date-range';
 
-import { TABLE_COLUMNS } from '../../context';
+import { QUERY_KEYS, TABLE_COLUMNS } from '../../context';
 
 import MuiDatatable from '../../../../../../components/datatable/mui-datatable';
 import DateRangePicker from '../../../../../../components/date-picker/date-range-picker';

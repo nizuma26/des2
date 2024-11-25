@@ -8,7 +8,6 @@ interface State {
   content: string;
   icon?: string | null;
   fn?: () => void;
-  customBtn?: ReactNode | null;
 }
 
 interface Actions {
@@ -22,19 +21,17 @@ const ALERT: State = {
   content: '¿Esta seguro de realizar la siguiente acción?',
   icon: 'pajamas:warning-solid',
   fn: () => {},
-  customBtn: null,
 };
 
 export const useAlert = create<State & Actions>((set) => ({
   ...ALERT,
-  showAlert: ({ isOpen = true, title=ALERT.title, content=ALERT.content, fn = ALERT.fn, icon, customBtn = ALERT.customBtn }) =>
+  showAlert: ({ isOpen = true, title=ALERT.title, content=ALERT.content, fn = ALERT.fn, icon }) =>
     set(() => ({
       isOpen: isOpen,
       title: title,
       content: content,
       fn: fn,
       icon: icon,
-      customBtn: customBtn,
     })),
   closeAlert: () => set((state) => ({ ...state, isOpen: false })),
 }));

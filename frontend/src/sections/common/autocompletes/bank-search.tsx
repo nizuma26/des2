@@ -5,7 +5,6 @@ import Fab from '@mui/material/Fab';
 import { FieldValues } from 'react-hook-form';
 
 import { useGetData } from '../../../hooks/use-get-data';
-import { useDialogStore } from '../../../components/dialog';
 
 import { AutocompleteProps } from './types';
 import { Bank } from '../../../types/configuration/banks';
@@ -28,7 +27,7 @@ const BankSearch = <TField extends FieldValues>({
   size="medium",
   onSelected,
   valueOptions="id",
-  buttonCreate=true
+  buttonCreate=false
 }: BankSearchProps<TField>) => {
 
   const { data = [], isLoading } = useGetData({

@@ -14,7 +14,6 @@ import { PaymentToggleButtonsProps } from './types';
 import { PAYMENT } from './context';
 
 import Iconify from '../../../../components/iconify';
-import TextField from '@mui/material/TextField';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   [`& .${toggleButtonGroupClasses.grouped}`]: {

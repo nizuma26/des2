@@ -26,7 +26,7 @@ const PrintInvoice = ({ invoice, discount, clientName, ciOrRif }: PrintInvoicePr
         />
       }
     >
-      {({ url, blob }) => (
+      {({ url }) => (
         <a href={url ?? ''} target="_blank">
           <Button startIcon={<Iconify icon="solar:printer-bold-duotone" />}>
             Imprimir Factura

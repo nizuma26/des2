@@ -4,8 +4,9 @@ import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-
 import { useQueryClient } from '@tanstack/react-query';
+
+import { UserFormValues } from 'src/types/security/user';
 
 import { breadcrumbAddPage } from './context';
 
@@ -22,7 +23,7 @@ export default function UserAdd() {
     queryClient.invalidateQueries({queryKey: ['users']});
   }
 
-  const DEFAULT_VALUES = {
+  const DEFAULT_VALUES:UserFormValues = {
     names: '',
     last_names: '',
     cedula: null,
@@ -35,6 +36,7 @@ export default function UserAdd() {
     is_active: true,
     groups: [],
     laboratory: null,
+    cash_register: null
   }
 
   return (

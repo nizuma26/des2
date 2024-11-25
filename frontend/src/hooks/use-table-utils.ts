@@ -2,8 +2,16 @@ import { useState, useCallback } from 'react';
 
 import debounce from 'just-debounce-it';
 
-import { KeyValue, UseTableProps } from '../types/hooks';
 import { applyFilter, getComparator } from '../utils/table';
+
+type KeyValue = Record<string, any>
+
+interface UseTableProps <T extends KeyValue> {
+  data?: Array<T>,
+  defaultDebounce?: number,
+  filterFields?: string[];
+  defaultRowsPerPage?: number;
+}
 
 //-------------------------------------
 

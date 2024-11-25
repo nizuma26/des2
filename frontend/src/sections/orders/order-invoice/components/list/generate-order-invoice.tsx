@@ -222,7 +222,7 @@ export default function BillableOrdersTable() {
                 <TextField
                   size="small"
                   fullWidth
-                  label="Nombre o Razon Social"
+                  label="Número de Teléfono"
                   InputLabelProps={{
                     shrink: true,
                     sx: { fontWeight: '600' },

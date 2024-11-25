@@ -47,6 +47,11 @@ export const useMutateData = () => {
       }
     });
   };
+
+  type UpdateFields<T> = {
+    [K in keyof T]?: T[K]; // Permitir campos opcionales
+  };
+
   const updateData = <T extends Record<string, any>>({
     queryKey,
     id,
@@ -60,16 +65,16 @@ export const useMutateData = () => {
     values: any[];
     many?: boolean;
   }) => {
-    queryClient.setQueryData<T[] | T>(queryKey, (oldData) => {
-      if (!oldData) return;      
-      else if (many && !!id === false) return
-      else if (many && !Array.isArray(oldData)) return oldData;
+    queryClient.setQueryData(queryKey, (oldData) => {
+      if (!oldData) return;
+      if (many && id === undefined) return oldData; // Cambiado para mejor claridad
+      if (many && !Array.isArray(oldData)) return oldData;
+
       try {
         if (many) {
-          return oldData.map((row:T) => {
+          return (oldData as T[]).map((row: T) => {
             if (row?.id === id) {
               const updateItem = { ...row };
-  
               fields.forEach((field, i) => {
                 updateItem[field] = values[i];
               });
@@ -77,18 +82,17 @@ export const useMutateData = () => {
             }
             return row;
           });
-        } else {        
-            const item = {...oldData}
-            fields.forEach((field, i) => {
-              item[field] = values[i];
-            });
-            return item
-  
+        } else {
+          const item: UpdateFields<T> = { ...oldData };
+          fields.forEach((field, i) => {
+            item[field] = values[i];
+          });
+          return item;
         }
       } catch (e) {
-        return oldData
+        console.error(e);
+        return oldData;
       }
-      
     });
   };
   const invalidateQueries = ({ queryKey }: { queryKey: unknown[] }): Promise<void> => {

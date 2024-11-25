@@ -1,8 +1,8 @@
 import { Control } from 'react-hook-form';
-import { User } from '../../../../types/security/user';
+import { UserFormValues } from '../../../../types/security/user';
 
 export interface AutocompleteProps {
-  control: Control<User>;
+  control: Control<UserFormValues>;
 }
 
 export interface CashRegisterSearchProps extends AutocompleteProps {

@@ -1,4 +1,4 @@
-import { useState, useMemo, ChangeEvent } from 'react';
+import React, { useState, useMemo, ChangeEvent, useCallback } from 'react';
 //@mui
 import Scrollbar from '../../../components/scrollbar';
 import Dialog from '@mui/material/Dialog';
@@ -9,16 +9,25 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 
-import Iconify from '../../../components/iconify';
-import NoData from '../../../components/no-data';
+import { NavData, NavSubItem } from './navigation/types';
 
+
+import { SvgIcon } from 'src/components/svg-color';
 import ModuleLink from './module-link';
-
-import { navConfig } from '../config-navigation';
+import NoData from '../../../components/no-data';
 
 // ----------------------------------------------------------------------
 
-export default function SearchNavItems() {
+interface SearchNavItemsProps {
+  navData: NavData[]
+}
+
+interface FilteredNavData {
+  title: string;
+  children: NavSubItem[];
+}
+
+export default function SearchNavItems({ navData }:SearchNavItemsProps) {
 
   const [open, setOpen] = useState(false);
 
@@ -34,33 +43,33 @@ export default function SearchNavItems() {
 
   const onFilterData = (e:ChangeEvent<HTMLInputElement>) => setFilter(e.target.value);
 
-  const filterOptions = (data:any, searchTerm:string) => {
-    const filteredItems:Array<string> = [];
+  const filterOptions = useCallback((data:FilteredNavData[], searchTerm:string) => {
+    const filteredItems:FilteredNavData[] = [];
   
-    data.forEach((item:any) => {
-      const matchingModules = item.modules.filter(
-        (module:any) =>
+    data.forEach((item) => {
+      const matchingModules = item.children.filter(
+        (module) =>
           module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          module.path.toLowerCase().includes(searchTerm.toLowerCase())
+          module?.path?.toLowerCase().includes(searchTerm.toLowerCase())
       );
       if (matchingModules.length > 0) {
-        filteredItems.push({ ...item, modules: matchingModules });
+        filteredItems.push({ ...item, children: matchingModules });
       }
     });
     return filteredItems;
-  };
+  }, []);
 
-  const newArray = useMemo(() => navConfig.map((item) => ({
-    ...item,
-    modules: item.children
+  const newArray = useMemo(() => navData.map((item) => ({
+    title: item.title,
+    children: item?.children
       .flatMap((module) => {
-        if (module.children) {
+        if (module?.children) {
           return module.children;
         }
-        return module.path ? module : null;
+        return module?.path ? module : null;
       })
-      .filter(Boolean),
-  })), [navConfig]);
+      .filter((child): child is NavSubItem => child !== null && typeof child === 'object'),
+  })), [navData]);
 
   const filteredData = filterOptions(newArray, filter)
 
@@ -69,7 +78,7 @@ export default function SearchNavItems() {
   return (
       <div>
         <IconButton onClick={handleOpen}>
-          <Iconify icon="eva:search-fill" width={20}/>
+          <SvgIcon icon="ic_search" />
         </IconButton>
         <Dialog
           onClose={handleClose}
@@ -100,9 +109,8 @@ export default function SearchNavItems() {
               }}
               startAdornment={
                 <InputAdornment position="start">
-                  <Iconify
-                    icon="eva:search-fill"
-                    width={20}
+                  <SvgIcon
+                    icon="ic_search"
                     sx={{ color: 'text.disabled', width: 20, height: 20 }}
                   />
                 </InputAdornment>
@@ -121,14 +129,14 @@ export default function SearchNavItems() {
                 },
               }}
             >
-              {filteredData.map((item:any) => (
+              {filteredData.map((item:FilteredNavData) => (
                 <List key={item.title} sx={{ margin: 0, padding: 0, width: '100%' }}>
-                  {item.modules.map((module:any) => (
+                  {item.children.map((module) => (
                     <ModuleLink
                       key={module.title}
                       moduleTitle={module.title}
                       sectionTitle={item.title}
-                      path={module.path}
+                      path={module.path || ''}
                       handleClose={handleClose}
                     />
                   ))}

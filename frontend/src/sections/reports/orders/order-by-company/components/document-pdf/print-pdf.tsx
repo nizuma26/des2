@@ -3,11 +3,11 @@ import Typography from '@mui/material/Typography';
 
 import { BlobProvider } from '@react-pdf/renderer';
 
-import { IncomeSummary } from '../../../../../types/reports/income-summary';
-import { LaboratoryDataForReporting } from '../../../../../types/configuration/laboratory';
+import { IncomeSummary } from '../../../../../../types/reports/income-summary';
+import { LaboratoryDataForReporting } from '../../../../../../types/configuration/laboratory';
 
 import InventoryPDF from './inventory-pdf';
-import { SvgIcon } from '../../../../../components/svg-color';
+import { SvgIcon } from '../../../../../../components/svg-color';
 
 interface PrintInventoryProps {
   data: IncomeSummary[];
@@ -19,7 +19,7 @@ const PrintPDF = ({ data, laboratory, amountPaid }: PrintInventoryProps) => {
   return (
     <BlobProvider document={<InventoryPDF data={data} laboratory={laboratory} amountPaid={amountPaid} />}>
       {({ url, blob }) => (
-        <a href={url} target="_blank">
+        <a href={url ?? '#'} target="_blank">
           <Button
             fullWidth
             variant="contained"

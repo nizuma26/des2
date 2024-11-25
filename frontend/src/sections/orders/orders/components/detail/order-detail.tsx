@@ -39,7 +39,7 @@ export default function OrderDetailSections({
     0
   );
 
-  const isInvoice = !!Number(data.main_total) && data.status === 'Pendiente' && !!data?.affiliation === false;
+  const isInvoice = !!Number(data.main_total) && !data?.affiliation && data.is_invoiced === false && data.balance === 0;
 
   const [ciOrRif, clientName] = data.affiliation?.id
     ? [data.affiliation.rif, data.affiliation.name]
@@ -57,7 +57,7 @@ export default function OrderDetailSections({
         </Button>
       </Box>
       <Box display="flex" justifyContent="flex-end" width={1} gap={2}>
-        {data.status === 'Facturado' && (
+        {data.is_invoiced && (
           <PrintInvoice
             invoice={data}
             discount={discount}

@@ -1,17 +1,17 @@
 import { axiosPrivate } from "../axios";
 
-import { Generic } from "../../types";
+import { GenericValues } from "../../types";
 
 import { addValidDataToFormData } from "../../utils/add-valid-data";
 
-export const newCategory = async(data:Generic) => {
+export const newCategory = async(data:GenericValues) => {
     const formData = new FormData();
     addValidDataToFormData(data, formData)
     const response = await axiosPrivate.post('api/inventory/category/', formData)
     return response.data
 }
 
-export const editCategory = async(data:Generic) => {
+export const editCategory = async(data:GenericValues) => {
     const formData = new FormData();
     addValidDataToFormData(data, formData)
     const response = await axiosPrivate.put(`api/inventory/category/${data.id}/`, formData)

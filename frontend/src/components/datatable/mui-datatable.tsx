@@ -18,11 +18,11 @@ import { MuiDatatableProps } from './types';
 
 import { DEFAULT_OPTIONS } from './context';
 
-import TableNoData from '../table/table-no-data';
+import TableNoData from './table-no-data';
 import TableLoadingData from './table-loading';
 import RowDatatable from './rows-datatable';
-import TableEmptyRows from '../table/table-empty-rows';
-import TableToolbar from '../table/table-toolbar';
+import TableEmptyRows from './table-empty-rows';
+import TableToolbar from './table-toolbar';
 import InputSearch from '../input-search';
 import RowsSelected from './rows-selected';
 import SortingTableHead from './sorting-table-head';

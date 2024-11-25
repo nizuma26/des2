@@ -17,7 +17,7 @@ from .serializers import (
     PurchaseOrderSerializer, 
     PurchaseOrderListSerializer, 
     PurchaseOrderRetrieveSerializer,
-    SupplierSearchSerializer,
+    SupplierSerializer,
     RequisitionSerializer
 )
 
@@ -145,7 +145,7 @@ class PurchaseOrderViewSet(ModelViewSet):
                 |Q(rif__icontains=text)
                 |Q(email__icontains=text)
             )[0:10]
-            serializer = SupplierSearchSerializer(suppliers, many=True)
+            serializer = SupplierSerializer(suppliers, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         
         except Exception as e:

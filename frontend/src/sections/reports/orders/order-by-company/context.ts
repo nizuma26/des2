@@ -1,4 +1,4 @@
-import { Columns } from "../../../types/ui"
+import { Columns } from "src/types/ui"
 
 export const TABLE_COLUMNS: Array<Columns> = [
     { id: 'id', label: '', sort: false },
@@ -25,3 +25,7 @@ export const BREADCRUMB_LIST_PAGE = [
     type: 'typography'
   }
 ]
+
+export const QUERY_KEYS = {
+  LIST: 'ordersByCompany'
+}

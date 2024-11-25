@@ -11,7 +11,6 @@ import Label from '../../../../../components/label';
 // -----------------------------------------------
 
 function OrderDataCard({
-  code,
   comment,
   cost_type,
   hour,
@@ -20,7 +19,6 @@ function OrderDataCard({
   status,
   user,
   cash_register,
-  payment_type
 }: OrderDataCardProps) {
 
   return (

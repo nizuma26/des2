@@ -57,11 +57,11 @@ export default function IncomeSummaryTable() {
     },
     {
       columnIndex: 4,
-      render: (data: IncomeSummary, rowIndex: number) => <>{data.amount_paid.toFixed(2)}</>,
+      render: (data: IncomeSummary, rowIndex: number) => <>{data.total.toFixed(2)}</>,
     },
     {
       columnIndex: 5,
-      render: (data: IncomeSummary, rowIndex: number) => <>{data.total.toFixed(2)}</>,
+      render: (data: IncomeSummary, rowIndex: number) => <>{data.amount_paid.toFixed(2)}</>,
     },
     {
       columnIndex: 6,

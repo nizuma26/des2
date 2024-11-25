@@ -1,6 +1,6 @@
 export type TypeWithKey<T> = { [key: string]: T };
 
-export const getValidationError = (errorCode: any) => {
+export const getValidationError = (errorCode: string) => {
   const codeMatcher: TypeWithKey<string> = {
     ERR_NETWORK: 'Se rompió la red',
     ERR_TIMEOUT: 'Se acabó el tiempo',
@@ -15,12 +15,3 @@ export const getValidationError = (errorCode: any) => {
 
   return codeMatcher[errorCode];
 };
-
-export const obtainErrors = (error: Error) => {
-  let html = '<ul>';
-  Object.keys(error).map((i:string) => {
-      html += `<li style="list-style: none;">${error[i]}</li>`;
-  })
-  html += '</ul>'
-  return html
-}

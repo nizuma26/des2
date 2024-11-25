@@ -1,7 +1,7 @@
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker as MuiDatePicker } from '@mui/x-date-pickers/DatePicker';
-import { SxProps } from '@mui/material';
+import { SxProps, Theme } from '@mui/material';
 
 import { useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
@@ -40,7 +40,7 @@ export default function DatePicker({
         borderRadius: '12px',
         borderColor: '#2196f3',
         borderWidth: '1px',
-        boxShadow: (theme) => theme.customShadows.paper,
+        boxShadow: (theme:Theme) => theme.customShadows.paper,
         backgroundColor: 'background.paper',
       },
     },

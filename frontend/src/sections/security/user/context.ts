@@ -45,6 +45,8 @@ export const breadcrumbAddPage = [
 
 export const QUERY_KEYS = {
   list: 'users',
+  laboratories: 'laboratorySearch',
+  roles: 'roleSearch',
   cashRegisters: 'user-cash-register',
   permissions: 'user-permissions'
 }
