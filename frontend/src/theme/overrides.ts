@@ -26,9 +26,6 @@ export function overrides(theme:Theme):Components {
             backgroundColor: theme.palette.primary.dark,
             boxShadow: `0 14px 26px -12px ${alpha(theme.palette.primary.main, 0.32)},0 4px 23px 0 rgba(0,0,0,.12),0 8px 10px -5px ${alpha(theme.palette.primary.main, 0.2)}`,
           },
-          '&:active': {
-            transform: 'scale(0.95) translateZ(0px)',
-          },
         },
       },
     },

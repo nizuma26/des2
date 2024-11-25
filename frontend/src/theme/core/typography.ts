@@ -1,4 +1,4 @@
-import type { TypographyOptions } from '@mui/material/styles/createTypography';
+import type { TypographyOptions, Typography } from '@mui/material/styles/createTypography';
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
@@ -8,9 +8,6 @@ declare module '@mui/material/styles' {
   interface TypographyVariantsOptions {
     fontSecondaryFamily?: React.CSSProperties['fontFamily'];
     fontWeightSemiBold?: React.CSSProperties['fontWeight'];
-  }
-  interface ThemeVars {
-    typography: Theme['typography'];
   }
 }
 // ----------------------------------------------------------------------

@@ -49,6 +49,8 @@ export default function UserTable() {
 
   const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
+  //console.log(data)
+
   const rowSelectedOptions:RowSelectedOptions[] = [
     {
       tooltip: 'Inactivar',

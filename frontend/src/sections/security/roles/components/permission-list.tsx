@@ -85,8 +85,6 @@ export default function PermissionList({ handleToggle, selectAll, selected }: Pe
 
   const notFound = !permissionItems.length;
 
-  console.log(permissionItems)
-
   return (
     <Card
       sx={{

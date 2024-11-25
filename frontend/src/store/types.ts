@@ -1,4 +1,4 @@
-import { PresetsColor } from "../theme/presets-color";
+import { PresetsColor } from "../theme/types";
 
 export type NavColor = 'integrate' | 'apparent';
 

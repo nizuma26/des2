@@ -63,7 +63,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/dist')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,10 +112,10 @@ USE_L10N = True
 
 # Static files (CSS, JavaScript, Images)
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_URL = '/assets/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'dist/static')
+    os.path.join(BASE_DIR, 'frontend/dist/assets')
 ]
 
 MEDIA_URL = 'media/'
@@ -129,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cors Headers
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173'
+    'http://localhost:5173',
 ]
 
 CORS_ALLOW_CREDENTIALS = True

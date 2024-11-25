@@ -5,8 +5,6 @@ import { useSettingsLayout } from '../../../../store/settings';
 
 import { linearGradient } from '../../../../utils/hex-to-rgb';
 
-import { optionSelected } from '../../../../theme/palette';
-
 interface SidebarOrientationProps {
   orientation: string;
 }
