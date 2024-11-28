@@ -10,7 +10,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -155,7 +155,7 @@ SIMPLE_JWT = {
 
     'ALGORITHM': 'HS256',
 
-    'VERIFYING_KEY': SECRET_KEY,
+
     'AUDIENCE': None,
     'ISSUER': None,
     'JWK_URL': None,
