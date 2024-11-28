@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','web-production-6624.up.railway.app']
+ALLOWED_HOSTS = ['web-production-6624.up.railway.app']
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -151,6 +151,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
+    "SIGNING_KEY": "123456yb",
 
     'ALGORITHM': 'HS256',
 
