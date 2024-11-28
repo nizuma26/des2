@@ -1,5 +1,5 @@
 db.sqlite3
-env
+venv
 estructure.txt
 .env
 __pycache__
